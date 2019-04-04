@@ -43,6 +43,8 @@
   transition: all 0.3s, padding 0s;
   &:hover {
     background: @pro-header-hover-bg;
+    // background: rgb(141, 220, 164);
+
   }
 }
 
@@ -88,7 +90,7 @@
   height: @layout-header-height;
   .action {
     color: rgba(255, 255, 255, 0.85);
-    // color: rgba(102, 181, 255,);
+    // background: rgb(141, 220, 164);
     > i {
       color: rgba(255, 255, 255, 0.85);
       // color: rgba(102, 181, 255,);
@@ -97,10 +99,11 @@
     &:global(.opened) {
       background: @primary-color;
       // background: @link-color;
+      // background: rgb(141, 220, 164);
     }
     :global(.ant-badge) {
-      // color: rgba(255, 255, 255, 0.85);
-      color: rgba(102, 181, 255);
+      color: rgba(255, 255, 255, 0.85);
+      // color: rgba(102, 181, 255);
     }
   }
 }
@@ -115,6 +118,7 @@
     }
     i.trigger {
       padding: 22px 12px;
+      background: rgb(141, 220, 164);
     }
     .logo {
       position: relative;
