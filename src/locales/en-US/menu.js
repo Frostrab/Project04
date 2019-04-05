@@ -38,8 +38,9 @@ export default {
   'menu.account.settings': 'Account Settings',
   'menu.account.trigger': 'Trigger Error',
   'menu.account.logout': 'Logout',
-  'menu.inboxtable': 'Inbox',
-  'menu.newitem': 'New Item',
+  // NEW
+  'menu.inboxtable': 'ข้อมูลภาษีป้าย',
+  'menu.newitem': 'แบบฟอร์มคำขอยื่นภาษีป้าย',
   'menu.supplier': 'Supplier',
   'menu.PO': 'Purchase Order',
   'menu.productexample': 'Product Example',

@@ -15,6 +15,7 @@ import {
   Popover,
   Steps,
   Tabs,
+  Collapse,
 } from 'antd';
 //------------------
 import PageHeaderWrapper from '@/components/PageHeaderWrapper';
@@ -24,6 +25,7 @@ import Accounting from './Accounting';
 import RD from './RD';
 import Productplan from './Productplan';
 
+const Panel = Collapse.Panel;
 const Step = Steps.Step;
 const TabPane = Tabs.TabPane;
 
@@ -105,89 +107,23 @@ export default class Index extends PureComponent {
     } = this.state;
     return (
       <div>
-        <PageHeaderWrapper title="NEW ITEM NUMBER : MANUFACTURED ITEM">
+        <PageHeaderWrapper title="แบบฟอร์มคำขอยื่นภาษีป้าย">
           <Card bordered={false}>
-            <Card bordered={false}>
-              <Steps current={current}>
-                {stepsBuyer.map(item => (
-                  <Step key={item.title} title={item.title} status={item.status} icon={item.icon} />
-                ))}
-              </Steps>
-            </Card>
-            <Tabs onChange={callback} type="card">
-              <TabPane tab="ฝ่ายการตลาด" key="1">
-                <div style={{ padding: 10 }}>
-                  <Steps current={current}>
-                    {steps.map(item => (
-                      <Step
-                        key={item.title}
-                        title={item.title}
-                        status={item.status}
-                        icon={item.icon}
-                      />
-                    ))}
-                  </Steps>
-                  {/* <Card title="ฝ่ายการตลาด" style={{width:'100%'}}> */}
-                  {/* <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                      <div>
-                        <strong><h4>ฝ่ายการตลาด</h4></strong>
-                      </div>
-                      <div>
-                        <Button type="primary">ตกลง</Button>
-                      </div>
-                    </div> */}
-                  <MarketingForm />
-                  {/* </Card> */}
-                </div>
-              </TabPane>
-              <TabPane tab="ฝ่ายบัญชีและการเงิน" key="2">
-                <div style={{ padding: 10 }}>
-                  <Steps current={current}>
-                    {steps.map(item => (
-                      <Step
-                        key={item.title}
-                        title={item.title}
-                        status={item.status}
-                        icon={item.icon}
-                      />
-                    ))}
-                  </Steps>
-
-                  <Accounting />
-                </div>
-              </TabPane>
-              <TabPane tab="ฝ่ายR&D" key="3">
-                <div style={{ padding: 10 }}>
-                  <Steps current={current}>
-                    {steps.map(item => (
-                      <Step
-                        key={item.title}
-                        title={item.title}
-                        status={item.status}
-                        icon={item.icon}
-                      />
-                    ))}
-                  </Steps>
-                  <RD />
-                </div>
-              </TabPane>
-              <TabPane tab="ฝ่ายแผนการผลิต" key="4">
-                <div style={{ padding: 10 }}>
-                  <Steps current={current}>
-                    {steps.map(item => (
-                      <Step
-                        key={item.title}
-                        title={item.title}
-                        status={item.status}
-                        icon={item.icon}
-                      />
-                    ))}
-                  </Steps>
-
-                  <Productplan />
-                </div>
-              </TabPane>
-            </Tabs>
+          <Collapse accordion>
+    <Panel header="ภป.1" key="1">
+    <MarketingForm />
+    </Panel>
+    <Panel header="ภป.2" key="2">
+    <Accounting />
+    </Panel>   
+    <Panel header="ภป.3" key="3">
+    <Productplan />
+    </Panel>  
+    <Panel header="ภป.7" key="4">
+    <RD />
+    </Panel>  
+                 
+             </Collapse>
           </Card>
         </PageHeaderWrapper>
       </div>

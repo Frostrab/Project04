@@ -84,19 +84,19 @@ class EditableCell extends React.Component {
                   })(<Input ref={node => (this.input = node)} onPressEnter={this.save} />)}
                 </FormItem>
               ) : (
-                <div
-                  className="editable-cell-value-wrap"
-                  style={{ paddingRight: 24 }}
-                  onClick={this.toggleEdit}
-                >
-                  {restProps.children}
-                </div>
-              );
+                  <div
+                    className="editable-cell-value-wrap"
+                    style={{ paddingRight: 24 }}
+                    onClick={this.toggleEdit}
+                  >
+                    {restProps.children}
+                  </div>
+                );
             }}
           </EditableContext.Consumer>
         ) : (
-          restProps.children
-        )}
+            restProps.children
+          )}
       </td>
     );
   }
@@ -107,28 +107,48 @@ export default class EditableTable extends React.Component {
     super(props);
     this.columns = [
       {
-        title: 'ประเภทเอกสาร',
-        dataIndex: 'ประเภทเอกสาร',
+        title: 'ประเภทป้าย',
+        dataIndex: 'Category',
         width: '13%',
       },
       {
-        title: 'เลขที่เอกสาร',
-        dataIndex: 'เลขที่เอกสาร',
-        width: '11%',
+        title: 'ขนาดป้าย ซ.ม.',
+        children: [
+          {
+            title: 'กว้าง',
+            dataIndex: 'Width',
+            width: '5%',
+          },
+          {
+            title: 'ยาว',
+            dataIndex: 'Height',
+            width: '5%',
+          },
+        ]
       },
       {
-        title: 'รายละเอียด',
-        dataIndex: 'รายละเอียด',
+        title: 'เนื้อที่ป้าย ตาราง ซ.ม.',
+        dataIndex: 'Total',
         width: '25%',
       },
       {
-        title: 'จาก',
-        dataIndex: 'จาก',
+        title: 'จำนวนป้าย',
+        dataIndex: 'Count',
         width: '10%',
       },
       {
-        title: 'วันที่รับเอกสาร',
-        dataIndex: 'วันที่รับเอกสาร',
+        title: 'ข้อความหรือภาพหรือเครื่องหมายที่ปรากฏในป้ายโดยย่อ',
+        dataIndex: 'Text',
+        width: '10%',
+      },
+      {
+        title: 'สถานที่ติดตั้งป้าย สถานที่ใกล้เคียง หรือระหว่าง ก.ม. ที่',
+        dataIndex: 'Address',
+        width: '10%',
+      },
+      {
+        title: 'วันที่ติดตั้งป้าย',
+        dataIndex: 'Date',
         width: '10%',
       },
       {
@@ -138,8 +158,8 @@ export default class EditableTable extends React.Component {
           this.state.dataSource.length >= 1 ? (
             <div>
               <Button style={{ fontSize: 14 }}>แสดง</Button>
-              <Button type="primary">อนุมัติ</Button>
-              <Button type="danger">ไม่อนุมัติ</Button>
+              <Button type="primary">แก้ไข</Button>
+              {/* <Button type="danger">ไม่อนุมัติ</Button> */}
             </div>
           ) : null,
       },
@@ -149,43 +169,58 @@ export default class EditableTable extends React.Component {
       dataSource: [
         {
           key: '1',
-          ประเภทเอกสาร: 'เอกสาร PO',
-          เลขที่เอกสาร: 'ACT-FM070',
-          รายละเอียด: 'ผลิตภัณฑ์ ชาวเกาะ',
-          จาก: 'นาย สมชาย กล้าหาร',
-          วันที่รับเอกสาร: '25 ม.ค. 2562',
+          Category: 'มีอักษรไทยล้วน มีอักษรไทย',
+          Width: 90,
+          Height:90,
+          Total: '',
+          Count: 'นาย สมชาย กล้าหาร',
+          Text: '25 ม.ค. 2562',
+          Address:'A',
+          Date:'01/01/62',
         },
         {
           key: '2',
-          ประเภทเอกสาร: 'เอกสาร ใบขอให้มี & แจ้งผลการทดสอบสินค้าตัวอย่าง',
-          เลขที่เอกสาร: 'PUR-FM003',
-          รายละเอียด: 'ผลิตภัณฑ์ กะทิรอยไทย',
-          จาก: 'นาย สมสกุล กล้าหาร',
-          วันที่รับเอกสาร: '30 ม.ค. 2562',
+          Category: 'ปนกับอักษรต่างประเทศ หรือเครื่องหมาย',
+          Width: 100,
+          Height:90,
+          Total: '',
+          Count: 'นาย สมสกุล กล้าหาร',
+          Text: '30 ม.ค. 2562',
+          Address:'A',
+          Date:'01/01/62',
         },
         {
           key: '3',
-          ประเภทเอกสาร: 'เอกสาร NEW ITEM',
-          เลขที่เอกสาร: ' APF-FM027',
-          รายละเอียด: 'ผลิตภัณฑ์ สารสกัดใบหม่อน',
-          จาก: 'นาง จริงใจ จริงจริง',
-          วันที่รับเอกสาร: '2 ม.ค. 2562',
+          Category: 'ป้ายที่ไม่มีอักษรไทย',
+          Width: 100,
+          Height:90,
+          Total: "",
+          Count: 'นาง จริงใจ จริงจริง',
+          Text: '2 ม.ค. 2562',
+          Address:'A',
+          Date:'01/01/62',
         },
         {
           key: '4',
-          ประเภทเอกสาร: 'เอกสาร ขอเพิ่ม SUPPLIER',
-          เลขที่เอกสาร: 'PUR-FM012',
-          รายละเอียด: 'เจ้าของสวน มันสําปะหลัง จังหวัด ราชบุรี',
-          จาก: 'นาย สุขใจ พอมี',
-          วันที่รับเอกสาร: '6 ธ.ค. 2561',
+          Category: 'ปนกับอักษรต่างประเทศ หรือเครื่องหมาย',
+          Width: 120,
+          Height:90,
+          Total: '',
+          Count: 'นาย สุขใจ พอมี',
+          Text: '6 ธ.ค. 2561',
+          Address:'A',
+          Date:'01/01/62',
         },
         {
           key: '5',
-          ประเภทเอกสาร: 'เอกสาร PO',
-          เลขที่เอกสาร: 'ACT-FM080',
-          รายละเอียด: 'ผลิตภัณฑ์ น้ำมันมะพร้าว รอยไทย',
-          จาก: 'นาย สามารถ ใจกล้า',
-          วันที่รับเอกสาร: '25 ม.ค. 2562',
+          Category: 'ป้ายที่ไม่มีอักษรไทย',
+          Width: 150,
+          Height:90,
+          Total: '',
+          Count: 'นาย สามารถ ใจกล้า',
+          Text: '25 ม.ค. 2562',
+          Address:'A',
+          Date:'01/01/62',
         },
       ],
       count: 0,
@@ -259,13 +294,14 @@ export default class EditableTable extends React.Component {
         <Card bordered={false}>
           <Form>
             <Col lg={12} md={12} sm={24}>
-              <Button type="primary">อนุมัติทั้งหมด</Button>
-              <Button type="danger">ไม่อนุมัติทั้งหมด</Button>
+              {/* <Button type="primary">อนุมัติทั้งหมด</Button>
+              <Button type="danger">ไม่อนุมัติทั้งหมด</Button> */}
             </Col>
             <Col xl={{ span: 2, offset: 2 }} lg={{ span: 8 }} md={{ span: 12 }} sm={24} />
             <Col xl={{ span: 4, offset: 2 }} lg={{ span: 8 }} md={{ span: 12 }} sm={24}>
               <Form.Item label={fieldLabels.Search}>
-                <Input placeholder="" />
+                <Input placeholder="ค้นหา" />
+                <Button type="primary">ค้นหา</Button>
               </Form.Item>
             </Col>
           </Form>

@@ -2,7 +2,8 @@ module.exports = {
   // navTheme: 'dark', // theme for nav menu
   navTheme: 'dark', // theme for nav menu
   // primaryColor: '#1890FF', // primary color of ant design
-  primaryColor: '#8ddca4', // primary color of ant design
+  // Fixed to leaf green default
+  primaryColor: '#b7eb8f', // primary color of ant design
   // layout: 'sidemenu', // nav menu position: sidemenu or topmenu
   layout: 'topmenu', // nav menu position: sidemenu or topmenu
   contentWidth: 'Fluid', // layout of content: Fluid or Fixed, only works when layout is topmenu
@@ -12,7 +13,7 @@ module.exports = {
   menu: {
     disableLocal: false,
   },
-  // title: 'Ant Design Pro',
+  // title: 'Ant Design Pro', 
   // Send Props to title ----------------------------------
   title: 'VAT',
   pwa: true,

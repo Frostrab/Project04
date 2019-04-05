@@ -36,8 +36,8 @@ const RadioGroup = Radio.Group;
 class InboxTable extends PureComponent {
   render() {
     return (
-      <PageHeaderWrapper title="Inbox">
-        <Card bordered={false} title="Inbox">
+      <PageHeaderWrapper title="ข้อมูลภาษีป้าย">
+        <Card bordered={false} title="ข้อมูลภาษีป้าย">
           <div>
             <EditableCell />
           </div>

@@ -44,7 +44,7 @@ const ThemeColor = ({ colors, title, value, onChange }) => {
       },
       {
         key: 'leaf',
-        color: '#8DDCA4',
+        color: '#b7eb8f',
       },
       {
         key: 'geekblue',

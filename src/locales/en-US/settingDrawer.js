@@ -11,9 +11,9 @@ export default {
   'app.setting.themecolor.sunset': 'Sunset Orange',
   'app.setting.themecolor.cyan': 'Cyan',
   'app.setting.themecolor.green': 'Polar Green',
-  'app.setting.themecolor.daybreak': 'Daybreak Blue (default)',
+  'app.setting.themecolor.daybreak': 'Daybreak Blue',
   // New Test
-  'app.setting.themecolor.leaf': 'Leaf Green',
+  'app.setting.themecolor.leaf': 'Leaf Green (default)',
   'app.setting.themecolor.geekblue': 'Geek Glue',
   'app.setting.themecolor.purple': 'Golden Purple',
   'app.setting.navigationmode': 'Navigation Mode',
