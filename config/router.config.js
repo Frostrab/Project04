@@ -275,6 +275,13 @@ export default [
         icon: 'table',
         name: 'inboxtable',
         component: './Inbox/InboxTable',
+      },   
+      // New-Item
+      {
+        path: '/taxform',
+        icon: 'table',
+        name: 'taxform',
+        component: './TaxForm',
       },
       // New-Item
       {

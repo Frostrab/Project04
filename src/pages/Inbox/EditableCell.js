@@ -18,6 +18,12 @@ const EditableRow = ({ form, index, ...props }) => (
 
 const EditableFormRow = Form.create()(EditableRow);
 
+// Total Cal
+// let Calculate = function(){
+
+// }
+
+
 class EditableCell extends React.Component {
   state = {
     editing: false,
@@ -129,7 +135,7 @@ export default class EditableTable extends React.Component {
       {
         title: 'เนื้อที่ป้าย ตาราง ซ.ม.',
         dataIndex: 'Total',
-        width: '25%',
+        width: '5%',
       },
       {
         title: 'จำนวนป้าย',

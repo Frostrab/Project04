@@ -40,7 +40,8 @@ export default {
   'menu.account.logout': 'Logout',
   // NEW
   'menu.inboxtable': 'ข้อมูลภาษีป้าย',
-  'menu.newitem': 'แบบฟอร์มคำขอยื่นภาษีป้าย',
+  'menu.taxform': 'แบบฟอร์มคำขอยื่นภาษีป้าย',
+  'menu.newitem': 'แบบฟอร์มคำขอยื่นภาษีป้าย2',
   'menu.supplier': 'Supplier',
   'menu.PO': 'Purchase Order',
   'menu.productexample': 'Product Example',
