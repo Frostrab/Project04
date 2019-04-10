@@ -98,6 +98,10 @@ const tableData = [
         department: 'Sidney No. 1 Lake Park',
     },
 ];
+
+
+
+
 function onChange(date, dateString) {
     console.log(date, dateString);
 }
@@ -111,7 +115,19 @@ function callback(key) {
 class TaxBB1 extends PureComponent {
     state = {
         width: '100%',
+        area:0,
+        Wid:0,
+        High:0,
     };
+    
+    handleWidChange(event) {
+        this.setState({Wid: event.target.value});
+      }
+    
+      handleHighChange(event) {
+        this.setState({High: event.target.value});
+      }
+      onChangeCal = e => this.setState({ [e.target.name]: e.target.value })
 
     componentDidMount() {
         window.addEventListener('resize', this.resizeFooterToolbar, { passive: true });
@@ -358,14 +374,16 @@ class TaxBB1 extends PureComponent {
                                 <Form.Item label={fieldLabels.W}>
                                     {getFieldDecorator('W', {
                                         rules: [{ required: true, message: '' }],
-                                    })(<Input placeholder="" />)}
+                                    })(<Input type="number" name="Wid" value="Wid" onChange={this.onChangeCal} />)}
+                                     {/* })(<Input placeholder="" />)} */}
                                 </Form.Item>
                             </Col>
                             <Col xl={{ span: 6, offset: 2 }} lg={{ span: 10 }} md={{ span: 24 }} sm={24}>
                                 <Form.Item label={fieldLabels.H}>
                                     {getFieldDecorator('H', {
                                         rules: [{ required: true, message: '' }],
-                                    })(<Input placeholder="" />)}
+                                    })(<Input type="number" name="High" value="High" onChange={this.onChangeCal} />)}
+                                     {/* })(<Input placeholder="" />)} */}
                                 </Form.Item>
                             </Col>
                         </Row>
@@ -373,9 +391,7 @@ class TaxBB1 extends PureComponent {
                         <Row gutter={16}>
                             <Col lg={6} md={12} sm={24}>
                                 <Form.Item label={fieldLabels.Cal}>
-                                    {getFieldDecorator('Cal', {
-                                        rules: [{ required: true, message: '' }],
-                                    })(<Input placeholder="" readOnly  />)}
+                                <Input type={0} value={this.state.area} readOnly />
                                 </Form.Item>
                             </Col>
                             <Col xl={{ span: 6, offset: 2 }} lg={{ span: 8 }} md={{ span: 12 }} sm={24}>
@@ -464,6 +480,18 @@ class TaxBB1 extends PureComponent {
                                         />
                                     )}
                                 </Form.Item>
+                            </Col>
+                            {/* <Col xl={{ span: 6, offset: 2 }} lg={{ span: 8 }} md={{ span: 12 }} sm={24}>
+                            
+                            </Col>
+                            <Col xl={{ span: 8, offset: 2 }} lg={{ span: 10 }} md={{ span: 24 }} sm={24}>
+                               
+                            </Col> */}
+                        </Row>
+                          {/* Row 13 */}
+                          <Row gutter={16}>
+                            <Col lg={12} md={12} sm={24}>
+                               <Button type="primary">Print</Button>
                             </Col>
                             {/* <Col xl={{ span: 6, offset: 2 }} lg={{ span: 8 }} md={{ span: 12 }} sm={24}>
                             

@@ -110,13 +110,13 @@ export default class Index extends PureComponent {
           <Card bordered={false}>
             <Collapse accordion>
               <Panel header="ภป.1" key="1">
-<TaxBB1 />
+                <TaxBB1 />
               </Panel>
               <Panel header="ภป.2" key="2">
                 <TaxBB2 />
               </Panel>
               <Panel header="ภป.3" key="3">
-<TaxBB3 />
+                <TaxBB3 />
               </Panel>
               <Panel header="ภป.7" key="4">
                 <TaxBB7 />

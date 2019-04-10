@@ -15,7 +15,7 @@ module.exports = {
   },
   // title: 'Ant Design Pro', 
   // Send Props to title ----------------------------------
-  title: 'VAT',
+  title: 'Tax',
   pwa: true,
   // your iconfont Symbol Scrip Url
   // eg：//at.alicdn.com/t/font_1039637_btcrd5co4w.js
