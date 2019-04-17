@@ -135,6 +135,14 @@ export default class EditableTable extends React.Component {
       {
         title: 'เนื้อที่ป้าย ตาราง ซ.ม.',
         dataIndex: 'Total',
+        render: (text, record) =>
+        this.state.dataSource.length >= 1 ? (
+          <div>
+            <Button style={{ fontSize: 14 }}>แสดง</Button>
+            <Button type="primary">แก้ไข</Button>
+            {/* <Button type="danger">ไม่อนุมัติ</Button> */}
+          </div>
+        ) : null,
         width: '5%',
       },
       {
@@ -160,14 +168,14 @@ export default class EditableTable extends React.Component {
       {
         title: '',
         dataIndex: 'operation',
-        render: (text, record) =>
-          this.state.dataSource.length >= 1 ? (
+        render: () =>
+          (
             <div>
               <Button style={{ fontSize: 14 }}>แสดง</Button>
               <Button type="primary">แก้ไข</Button>
               {/* <Button type="danger">ไม่อนุมัติ</Button> */}
             </div>
-          ) : null,
+          ),
       },
     ];
 

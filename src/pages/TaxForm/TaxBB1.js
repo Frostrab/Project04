@@ -113,21 +113,34 @@ function callback(key) {
 }))
 @Form.create()
 class TaxBB1 extends PureComponent {
+
+
     state = {
         width: '100%',
-        area:0,
-        Wid:0,
-        High:0,
+        area: 0,
+        Wid: 0,
+        High: 0,
     };
+
+    // Cal = (e) => {
+
+    //     return (
+    //     <p>{this.state.Wid} * {this.state.High}</p>)
+        
+    //   };
+    Cal = () => {
+    this.setState({ area : this.state.High * this.state.Wid})
+}
     
-    handleWidChange(event) {
-        this.setState({Wid: event.target.value});
-      }
-    
-      handleHighChange(event) {
-        this.setState({High: event.target.value});
-      }
-      onChangeCal = e => this.setState({ [e.target.name]: e.target.value })
+
+    handleWidChange = value => {
+        this.setState({ Wid: value });
+    }
+
+    handleHighChange = value => {
+        this.setState({ High: value });
+    }
+    onChangeCal = e => this.setState({ [e.target.name]: e.target.value })
 
     componentDidMount() {
         window.addEventListener('resize', this.resizeFooterToolbar, { passive: true });
@@ -214,7 +227,7 @@ class TaxBB1 extends PureComponent {
             form: { getFieldDecorator },
             submitting,
         } = this.props;
-        const { width } = this.state;
+        const { Wid, High,area } = this.state;
 
         return (
             <div>
@@ -279,35 +292,35 @@ class TaxBB1 extends PureComponent {
                         {/* Row 4 */}
                         <Row gutter={16}>
                             <Col lg={6} md={12} sm={24}>
-                            <Form.Item label={fieldLabels.Muu}>
+                                <Form.Item label={fieldLabels.Muu}>
                                     {getFieldDecorator('Muu', {
                                         rules: [{ required: true, message: 'กรุณากรอกชื่อร้าน' }],
                                     })(<Input placeholder="" />)}
                                 </Form.Item>
                             </Col>
-                            
+
                             <Col xl={{ span: 6, offset: 2 }} lg={{ span: 8 }} md={{ span: 18 }} sm={24}>
-                            <Form.Item label={fieldLabels.Kwang}>
+                                <Form.Item label={fieldLabels.Kwang}>
                                     {getFieldDecorator('Kwang', {
                                         rules: [{ required: true, message: 'กรุณากรอกชื่อร้าน' }],
                                     })(<Input placeholder="" />)}
                                 </Form.Item>
                             </Col>
                             <Col xl={{ span: 6, offset: 2 }} lg={{ span: 10 }} md={{ span: 18 }} sm={24}>
-                            <Form.Item label={fieldLabels.Ked}>
-                                {getFieldDecorator('Ked', {
-                                    rules: [{ required: true, message: 'กรุณากรอกชื่อร้าน' }],
-                                })(<Input placeholder="" />)}
-                            </Form.Item>
+                                <Form.Item label={fieldLabels.Ked}>
+                                    {getFieldDecorator('Ked', {
+                                        rules: [{ required: true, message: 'กรุณากรอกชื่อร้าน' }],
+                                    })(<Input placeholder="" />)}
+                                </Form.Item>
                             </Col>
                         </Row>
                         {/* Row 5 */}
                         <Row gutter={16}>
                             <Col lg={6} md={12} sm={24}>
-                              
+
                             </Col>
                             <Col xl={{ span: 6, offset: 2 }} lg={{ span: 8 }} md={{ span: 12 }} sm={24} />
-                           
+
                             <Col xl={{ span: 8, offset: 2 }} lg={{ span: 10 }} md={{ span: 24 }} sm={24} />
                         </Row>
                         {/* Row 6 */}
@@ -332,14 +345,14 @@ class TaxBB1 extends PureComponent {
                                 </Form.Item>
                             </Col>
                             <Col xl={{ span: 6, offset: 2 }} lg={{ span: 8 }} md={{ span: 12 }} sm={24} >
-                          
-                                </Col>
+
+                            </Col>
                             <Col xl={{ span: 8, offset: 2 }} lg={{ span: 10 }} md={{ span: 24 }} sm={24} />
                         </Row>
                         {/* Row 8 */}
                         <Row gutter={16}>
                             <Col lg={10} md={12} sm={24}>
-                            <Form.Item label={fieldLabels.Cat}>
+                                <Form.Item label={fieldLabels.Cat}>
                                     {getFieldDecorator('Cat', {
                                         rules: [{ required: true, message: '' }],
                                     })(
@@ -352,7 +365,7 @@ class TaxBB1 extends PureComponent {
 
                                         </Select>
                                     )}
-                                    
+
                                 </Form.Item>
                             </Col>
                             <Col xl={{ span: 6, offset: 2 }} lg={{ span: 8 }} md={{ span: 12 }} sm={24}>
@@ -372,18 +385,21 @@ class TaxBB1 extends PureComponent {
                             </Col>
                             <Col xl={{ span: 6, offset: 2 }} lg={{ span: 8 }} md={{ span: 12 }} sm={24}>
                                 <Form.Item label={fieldLabels.W}>
-                                    {getFieldDecorator('W', {
+                                    {/* {getFieldDecorator('W', {
                                         rules: [{ required: true, message: '' }],
-                                    })(<Input type="number" name="Wid" value="Wid" onChange={this.onChangeCal} />)}
-                                     {/* })(<Input placeholder="" />)} */}
+                                    })(<Input type="number" name="Wid" value={Wid} onChange={this.onChangeCal} />)}
+                                    })(<Input placeholder="" />)} */}
+                                    <Input type="number" name="Wid" value={Wid} onChange={this.onChangeCal} onBlur={this.Cal} />
                                 </Form.Item>
                             </Col>
                             <Col xl={{ span: 6, offset: 2 }} lg={{ span: 10 }} md={{ span: 24 }} sm={24}>
                                 <Form.Item label={fieldLabels.H}>
-                                    {getFieldDecorator('H', {
+                                    {/* {getFieldDecorator('H', {
                                         rules: [{ required: true, message: '' }],
-                                    })(<Input type="number" name="High" value="High" onChange={this.onChangeCal} />)}
-                                     {/* })(<Input placeholder="" />)} */}
+                                    })(<Input type="number" name="High" value={High} onChange={this.onChangeCal} />)}
+                                    })(<Input placeholder="" />)} */}
+                                    <Input type="number" name="High" value={High} onChange={this.onChangeCal} onBlur={this.Cal} />
+                                    
                                 </Form.Item>
                             </Col>
                         </Row>
@@ -391,14 +407,13 @@ class TaxBB1 extends PureComponent {
                         <Row gutter={16}>
                             <Col lg={6} md={12} sm={24}>
                                 <Form.Item label={fieldLabels.Cal}>
-                                <Input type={0} value={this.state.area} readOnly />
+                                    {/* <Input type="number" value={this.Cal()}   readOnly /> */}
+                                    <Input type="number" value={area}  readOnly />
                                 </Form.Item>
                             </Col>
                             <Col xl={{ span: 6, offset: 2 }} lg={{ span: 8 }} md={{ span: 12 }} sm={24}>
                                 <Form.Item label={fieldLabels.Total}>
-                                    {getFieldDecorator('Total', {
-                                        rules: [{ required: true, message: '' }],
-                                    })(<Input placeholder="" />)}
+                                <Input type="number"placeholder="" />
                                 </Form.Item>
                             </Col>
                             <Col xl={{ span: 8, offset: 2 }} lg={{ span: 10 }} md={{ span: 24 }} sm={24}>
@@ -488,10 +503,10 @@ class TaxBB1 extends PureComponent {
                                
                             </Col> */}
                         </Row>
-                          {/* Row 13 */}
-                          <Row gutter={16}>
+                        {/* Row 13 */}
+                        <Row gutter={16}>
                             <Col lg={12} md={12} sm={24}>
-                               <Button type="primary">Print</Button>
+                                <Button type="primary">Print</Button>
                             </Col>
                             {/* <Col xl={{ span: 6, offset: 2 }} lg={{ span: 8 }} md={{ span: 12 }} sm={24}>
                             
